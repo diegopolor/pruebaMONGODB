@@ -1,0 +1,25 @@
+{
+  "name": "mongodbprueba",
+  "version": "1.0.0",
+  "description": "Prueba de MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "mongoddPrueba"
+  ],
+  "author": "DiegoPoloR",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.3"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.16"
+  }
+}
