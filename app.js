@@ -8,6 +8,7 @@ const {
 } = require('./services/mongodb/productos')
 
 const jwt = require('jsonwebtoken')
+const bcrypt  = require('bcrypt')
 const express = require('express')
 const app = express()
 
@@ -22,9 +23,20 @@ app.get("/", (req, res)=>{
     res.send("data")
 })
 
+app.get("/encriptText/:text/:compareText",async (req, res)=>{
+
+    const {text, compareText} = req.params
+    const hash =await bcrypt.hash(text, 2)
+    const compare =await bcrypt.compare(compareText, hash)
+    const response = compare ? "Texto valido" : "Texto invalido"
+    res.json({status: response})
+    res.end()
+})
+
 app.get("/list", async(req, res)=>{
     const list = await listProductos()
     res.json(list)
+
 })
 
 app.get('/update/:descripcion', async (req, res)=>{
